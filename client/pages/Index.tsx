@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Sparkles, Users, Rocket, Brain, Code, Palette, Zap, Shield, Clock, Target, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
@@ -25,9 +26,11 @@ export default function Index() {
               <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</a>
               <a href="#process" className="text-muted-foreground hover:text-foreground transition-colors">Process</a>
               <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
-              <Button variant="outline" className="border-primary/20 hover:bg-primary/10">
-                Contact Us
-              </Button>
+              <Link to="/contact">
+                <Button variant="outline" className="border-primary/20 hover:bg-primary/10">
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -52,13 +55,17 @@ export default function Index() {
             We bridge the gap between brilliant concepts and tangible success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8">
-              Start Your Project
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10">
-              Join Our Network
-            </Button>
+            <Link to="/start-project">
+              <Button size="lg" className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8">
+                Start Your Project
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10">
+                Join Our Network
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -364,13 +371,17 @@ export default function Index() {
                 or an entrepreneur ready to build the next groundbreaking product.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0">
-                  Get Started Today
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-background/30 text-background hover:bg-background/10">
-                  Schedule Consultation
-                </Button>
+                <Link to="/start-project">
+                  <Button size="lg" variant="secondary" className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0">
+                    Get Started Today
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button size="lg" variant="outline" className="border-background/30 text-background hover:bg-background/10">
+                    Schedule Consultation
+                  </Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
