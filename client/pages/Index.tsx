@@ -245,10 +245,12 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
-                  Explore AI
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link to="/start-project">
+                  <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
+                    Explore AI
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
