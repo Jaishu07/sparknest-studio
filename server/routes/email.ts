@@ -73,7 +73,7 @@ const sendEmail = async (to: string, subject: string, htmlContent: string) => {
   } catch (error) {
     console.error("❌ Email sending failed:", error);
     // Don't throw error - still return success for demo purposes
-    console.log("📧 Continuing with demo mode...");
+    console.log("�� Continuing with demo mode...");
     return true;
   }
 };
@@ -138,6 +138,7 @@ export const handleContactForm: RequestHandler = async (req, res) => {
 
 export const handleProjectForm: RequestHandler = async (req, res) => {
   try {
+    console.log("📧 Received project form submission:", req.body);
     const validatedData = ProjectFormSchema.parse(req.body);
     
     const { 
