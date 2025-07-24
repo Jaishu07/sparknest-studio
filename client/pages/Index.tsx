@@ -127,10 +127,12 @@ export default function Index() {
                     </li>
                   </ul>
                 </div>
-                <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link to="/start-project">
+                  <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
+                    Start Your Project
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
