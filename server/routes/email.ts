@@ -207,45 +207,135 @@ export const handleProjectForm: RequestHandler = async (req, res) => {
       "freelancer-collaboration": "Freelancer Collaboration"
     };
     
+    const currentTime = new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+
+    const projectValue = {
+      "under-5k": "Under $5,000",
+      "5k-15k": "$5,000 - $15,000",
+      "15k-50k": "$15,000 - $50,000",
+      "50k-100k": "$50,000 - $100,000",
+      "over-100k": "Over $100,000",
+      "discuss": "Let's discuss"
+    };
+
+    const timelineLabels = {
+      "asap": "ASAP (Rush project)",
+      "1-month": "1 Month",
+      "2-3-months": "2-3 Months",
+      "3-6-months": "3-6 Months",
+      "6-months-plus": "6+ Months",
+      "flexible": "Flexible timeline"
+    };
+
     const htmlContent = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <div style="background: linear-gradient(135deg, #a855f7, #3b82f6); padding: 20px; border-radius: 10px 10px 0 0;">
-          <h1 style="color: white; margin: 0;">🚀 New Project Request - SparkNest Studio</h1>
-        </div>
-        <div style="padding: 20px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
-          <h2 style="color: #374151;">Client Information</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
-          ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-          
-          <h2 style="color: #374151;">Project Details</h2>
-          <p><strong>Project Type:</strong> ${projectTypeLabels[projectType]}</p>
-          <p><strong>Budget Range:</strong> ${budget}</p>
-          <p><strong>Timeline:</strong> ${timeline}</p>
-          
-          <h3 style="color: #374151;">Project Description</h3>
-          <div style="background: #f9fafb; padding: 15px; border-radius: 8px; border-left: 4px solid #a855f7;">
-            ${description.replace(/\n/g, '<br>')}
+      <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; background: #ffffff;">
+        <div style="background: linear-gradient(135deg, #a855f7, #3b82f6); padding: 30px; border-radius: 15px 15px 0 0; text-align: center;">
+          <div style="background: rgba(255,255,255,0.2); width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 35px;">🚀</span>
           </div>
-          
+          <h1 style="color: white; margin: 0; font-size: 32px;">New Project Request</h1>
+          <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 18px;">${projectTypeLabels[projectType]}</p>
+        </div>
+
+        <div style="padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 15px 15px;">
+          <div style="margin-bottom: 25px; padding: 15px; background: #f8fafc; border-radius: 10px; border-left: 5px solid #a855f7;">
+            <p style="margin: 0; color: #475569; font-size: 14px;">📅 Submitted: ${currentTime}</p>
+            <p style="margin: 5px 0 0 0; color: #475569; font-size: 14px;">🏷️ Project ID: PROJ-${Date.now()}</p>
+          </div>
+
+          <h2 style="color: #1e293b; margin-bottom: 20px; font-size: 24px;">👤 Client Information</h2>
+          <div style="background: #f8fafc; padding: 25px; border-radius: 10px; margin-bottom: 30px;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 0; font-weight: bold; color: #374151; width: 30%;">Full Name:</td>
+                <td style="padding: 12px 0; color: #64748b; font-size: 16px;">${name}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 0; font-weight: bold; color: #374151;">Email:</td>
+                <td style="padding: 12px 0; color: #64748b;"><a href="mailto:${email}" style="color: #3b82f6; text-decoration: none; font-size: 16px;">${email}</a></td>
+              </tr>
+              ${company ? `
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 0; font-weight: bold; color: #374151;">Company:</td>
+                <td style="padding: 12px 0; color: #64748b; font-size: 16px;">${company}</td>
+              </tr>
+              ` : ''}
+              ${phone ? `
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 0; font-weight: bold; color: #374151;">Phone:</td>
+                <td style="padding: 12px 0; color: #64748b;"><a href="tel:${phone}" style="color: #3b82f6; text-decoration: none; font-size: 16px;">${phone}</a></td>
+              </tr>
+              ` : ''}
+            </table>
+          </div>
+
+          <h2 style="color: #1e293b; margin-bottom: 20px; font-size: 24px;">🎯 Project Overview</h2>
+          <div style="background: #f1f5f9; padding: 25px; border-radius: 10px; margin-bottom: 30px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+              <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h4 style="margin: 0 0 8px 0; color: #1e40af; font-size: 14px;">PROJECT TYPE</h4>
+                <p style="margin: 0; color: #1e293b; font-weight: bold; font-size: 16px;">${projectTypeLabels[projectType]}</p>
+              </div>
+              <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #10b981;">
+                <h4 style="margin: 0 0 8px 0; color: #059669; font-size: 14px;">BUDGET RANGE</h4>
+                <p style="margin: 0; color: #1e293b; font-weight: bold; font-size: 16px;">${projectValue[budget] || budget}</p>
+              </div>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+              <h4 style="margin: 0 0 8px 0; color: #d97706; font-size: 14px;">TIMELINE</h4>
+              <p style="margin: 0; color: #1e293b; font-weight: bold; font-size: 16px;">${timelineLabels[timeline] || timeline}</p>
+            </div>
+          </div>
+
+          <h2 style="color: #1e293b; margin-bottom: 15px; font-size: 24px;">📝 Project Description</h2>
+          <div style="background: #f8fafc; padding: 25px; border-radius: 10px; border-left: 5px solid #6366f1; margin-bottom: 30px;">
+            <p style="margin: 0; color: #334155; line-height: 1.8; font-size: 16px; white-space: pre-wrap;">${description}</p>
+          </div>
+
           ${features && features.length > 0 ? `
-            <h3 style="color: #374151;">Required Features</h3>
-            <ul style="background: #f9fafb; padding: 15px; border-radius: 8px;">
-              ${features.map(feature => `<li>${feature}</li>`).join('')}
-            </ul>
-          ` : ''}
-          
-          ${additionalInfo ? `
-            <h3 style="color: #374151;">Additional Information</h3>
-            <div style="background: #f9fafb; padding: 15px; border-radius: 8px;">
-              ${additionalInfo.replace(/\n/g, '<br>')}
+            <h2 style="color: #1e293b; margin-bottom: 15px; font-size: 24px;">✨ Required Features</h2>
+            <div style="background: #f0fdf4; padding: 25px; border-radius: 10px; border: 1px solid #bbf7d0; margin-bottom: 30px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+                ${features.map(feature => `
+                  <div style="background: white; padding: 12px 16px; border-radius: 8px; border-left: 4px solid #22c55e; display: flex; align-items: center;">
+                    <span style="color: #22c55e; margin-right: 8px; font-weight: bold;">✓</span>
+                    <span style="color: #166534; font-size: 14px;">${feature}</span>
+                  </div>
+                `).join('')}
+              </div>
             </div>
           ` : ''}
-          
-          <div style="margin-top: 20px; padding: 15px; background: #eff6ff; border-radius: 8px;">
-            <p style="margin: 0; color: #1e40af;"><strong>WhatsApp:</strong> +91 9334732506</p>
-            <p style="margin: 5px 0 0 0; color: #1e40af;"><strong>Reply to:</strong> ${email}</p>
+
+          ${additionalInfo ? `
+            <h2 style="color: #1e293b; margin-bottom: 15px; font-size: 24px;">📋 Additional Information</h2>
+            <div style="background: #fefce8; padding: 25px; border-radius: 10px; border: 1px solid #fde047; margin-bottom: 30px;">
+              <p style="margin: 0; color: #422006; line-height: 1.8; font-size: 16px; white-space: pre-wrap;">${additionalInfo}</p>
+            </div>
+          ` : ''}
+
+          <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 25px; border-radius: 10px; border: 1px solid #7dd3fc; margin-bottom: 20px;">
+            <h3 style="margin: 0 0 20px 0; color: #0369a1; font-size: 20px;">🚀 Next Steps & Contact</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+              <a href="mailto:${email}?subject=Re: Project Request - ${projectTypeLabels[projectType]}" style="background: #3b82f6; color: white; padding: 15px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; display: block;">📧 Send Proposal</a>
+              <a href="https://wa.me/919334732506?text=Hi ${name}, I received your ${projectTypeLabels[projectType]} project request. Let's schedule a call to discuss the details." style="background: #22c55e; color: white; padding: 15px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; display: block;">📱 WhatsApp Chat</a>
+              ${phone ? `<a href="tel:${phone}" style="background: #8b5cf6; color: white; padding: 15px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; display: block;">📞 Call Client</a>` : ''}
+            </div>
+            <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 8px;">
+              <p style="margin: 0; color: #0369a1; font-size: 14px; text-align: center;"><strong>Expected Response:</strong> Within 24 hours | <strong>Contact:</strong> mrsharma729@gmail.com | <strong>WhatsApp:</strong> +91 9334732506</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; padding: 15px; background: #fafafa; border-radius: 8px; text-align: center; border: 1px solid #e5e7eb;">
+            <p style="margin: 0; color: #6b7280; font-size: 12px;">This project request was submitted via SparkNest Studio website</p>
+            <p style="margin: 5px 0 0 0; color: #6b7280; font-size: 12px;">All client information is confidential and secure</p>
           </div>
         </div>
       </div>
