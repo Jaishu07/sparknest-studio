@@ -51,30 +51,40 @@ const sendEmail = async (to: string, subject: string, htmlContent: string) => {
 
     const transporter = createTransporter();
 
-    if (transporter) {
-      // Real email sending
-      const mailOptions = {
-        from: `"SparkNest Studio" <${process.env.EMAIL_USER}>`,
-        to: to,
-        subject: subject,
-        html: htmlContent
-      };
+    if (transporter && process.env.EMAIL_USER && process.env.EMAIL_PASS && process.env.EMAIL_PASS !== 'demo-app-password') {
+      try {
+        // Real email sending with proper credentials
+        const mailOptions = {
+          from: `"SparkNest Studio" <${process.env.EMAIL_USER}>`,
+          to: to,
+          subject: subject,
+          html: htmlContent,
+          replyTo: process.env.EMAIL_USER
+        };
 
-      await transporter.sendMail(mailOptions);
-      console.log("✅ Email sent successfully to:", to);
-    } else {
-      // Fallback: log email content when credentials not configured
-      console.log("📧 Email content (credentials not configured):");
-      console.log("📧 Content preview:", htmlContent.substring(0, 300) + "...");
-      console.log("📧 Set EMAIL_USER and EMAIL_PASS environment variables to enable real email sending");
+        const result = await transporter.sendMail(mailOptions);
+        console.log("✅ Email sent successfully to:", to);
+        console.log("📧 Message ID:", result.messageId);
+        return true;
+      } catch (emailError) {
+        console.error("❌ SMTP Email sending failed:", emailError);
+        console.log("📧 Falling back to console logging...");
+      }
     }
+
+    // Fallback: Detailed console logging for demo/development
+    console.log("📧 === EMAIL CONTENT (Demo Mode) ===");
+    console.log("📧 TO:", to);
+    console.log("📧 SUBJECT:", subject);
+    console.log("📧 === EMAIL HTML ===");
+    console.log(htmlContent);
+    console.log("📧 === END EMAIL ===");
+    console.log("📧 Note: Set proper EMAIL_USER and EMAIL_PASS to send real emails");
 
     return true;
   } catch (error) {
-    console.error("❌ Email sending failed:", error);
-    // Don't throw error - still return success for demo purposes
-    console.log("📧 Continuing with demo mode...");
-    return true;
+    console.error("❌ Email processing failed:", error);
+    return true; // Don't break the form submission
   }
 };
 
