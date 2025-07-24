@@ -101,6 +101,7 @@ export default function StartProject() {
           title: "Project Submitted Successfully!",
           description: "We'll review your project and get back to you within 24 hours.",
         });
+        console.log("✅ Project form submitted successfully");
       } else {
         throw new Error(result.message);
       }
