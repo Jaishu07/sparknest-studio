@@ -1,5 +1,6 @@
 import { RequestHandler } from "express";
 import { z } from "zod";
+import nodemailer from "nodemailer";
 
 const ContactFormSchema = z.object({
   name: z.string().min(1, "Name is required"),
