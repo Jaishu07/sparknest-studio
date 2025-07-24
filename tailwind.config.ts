@@ -57,11 +57,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        spark: {
+          purple: "hsl(var(--spark-purple))",
+          blue: "hsl(var(--spark-blue))",
+        },
+      },
+      backgroundImage: {
+        'spark-gradient': 'linear-gradient(135deg, hsl(var(--spark-gradient-start)), hsl(var(--spark-gradient-end)))',
+        'spark-gradient-vertical': 'linear-gradient(180deg, hsl(var(--spark-gradient-start)), hsl(var(--spark-gradient-end)))',
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 4px)",
+        '2xl': "calc(var(--radius) + 8px)",
       },
       keyframes: {
         "accordion-down": {
