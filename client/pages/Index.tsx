@@ -188,10 +188,12 @@ export default function Index() {
                     <span className="text-sm">Deployment & Support</span>
                   </div>
                 </div>
-                <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
-                  Start Building
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link to="/start-project">
+                  <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
+                    Start Building
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
