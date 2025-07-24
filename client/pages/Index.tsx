@@ -23,9 +23,9 @@ export default function Index() {
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</a>
-              <a href="#process" className="text-muted-foreground hover:text-foreground transition-colors">Process</a>
-              <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+              <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link>
+              <Link to="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">Portfolio</Link>
+              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
               <Link to="/contact">
                 <Button variant="outline" className="border-primary/20 hover:bg-primary/10">
                   Contact Us
