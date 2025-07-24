@@ -80,6 +80,7 @@ const sendEmail = async (to: string, subject: string, htmlContent: string) => {
 
 export const handleContactForm: RequestHandler = async (req, res) => {
   try {
+    console.log("📧 Received contact form submission:", req.body);
     const validatedData = ContactFormSchema.parse(req.body);
     
     const { name, email, phone, subject, message, formType } = validatedData;
