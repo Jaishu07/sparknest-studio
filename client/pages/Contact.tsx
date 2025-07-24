@@ -57,6 +57,7 @@ export default function Contact() {
           title: "Message Sent Successfully!",
           description: "We'll get back to you as soon as possible.",
         });
+        console.log("✅ Contact form submitted successfully");
       } else {
         throw new Error(result.message);
       }
