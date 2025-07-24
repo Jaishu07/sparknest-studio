@@ -74,31 +74,31 @@ export default function Index() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link to="/start-project">
-                  <Button size="lg" className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8 py-4 text-lg">
+                  <Button size="lg" className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8 py-4 text-lg w-full sm:w-auto">
                     Start Your Project
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
                 <Link to="/portfolio">
-                  <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10 px-8 py-4 text-lg">
+                  <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10 px-8 py-4 text-lg w-full sm:w-auto">
                     View Our Work
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex items-center gap-8 pt-4">
+              <div className="flex items-center justify-center lg:justify-start gap-6 lg:gap-8 pt-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">4.9/5</div>
+                  <div className="text-xl lg:text-2xl font-bold text-primary">4.9/5</div>
                   <div className="text-xs text-muted-foreground">Client Rating</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">24/7</div>
+                  <div className="text-xl lg:text-2xl font-bold text-primary">24/7</div>
                   <div className="text-xs text-muted-foreground">Support</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">2-4 Weeks</div>
+                  <div className="text-xl lg:text-2xl font-bold text-primary">2-4 Weeks</div>
                   <div className="text-xs text-muted-foreground">Quick Start</div>
                 </div>
               </div>
