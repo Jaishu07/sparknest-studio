@@ -37,35 +37,126 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-6">
-        <div className="container mx-auto text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-8">
-            <Sparkles className="w-4 h-4 mr-2" />
-            Where innovative ideas take flight
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
-              SparkNest
-            </span>
-            <br />
-            <span className="text-foreground">Studio</span>
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            A dynamic software agency dedicated to crafting exceptional digital solutions. 
-            We bridge the gap between brilliant concepts and tangible success.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/start-project">
-              <Button size="lg" className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8">
-                Start Your Project
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10">
-                Join Our Network
-              </Button>
-            </Link>
+      <section className="pt-24 pb-16 px-6 min-h-[90vh] flex items-center">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
+            <div className="space-y-8">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Elite Software Development Agency
+              </div>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <span className="text-foreground">Transform Your</span>
+                <br />
+                <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
+                  Digital Vision
+                </span>
+                <br />
+                <span className="text-foreground">Into Reality</span>
+              </h1>
+
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
+                We're not just another software agency. We're your technology partners,
+                crafting cutting-edge web applications, mobile solutions, and AI-powered tools
+                that drive real business results.
+              </p>
+
+              <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span>150+ Projects Delivered</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span>95% Client Satisfaction</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/start-project">
+                  <Button size="lg" className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8 py-4 text-lg">
+                    Start Your Project
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <Link to="/portfolio">
+                  <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10 px-8 py-4 text-lg">
+                    View Our Work
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-8 pt-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">4.9/5</div>
+                  <div className="text-xs text-muted-foreground">Client Rating</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">24/7</div>
+                  <div className="text-xs text-muted-foreground">Support</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">2-4 Weeks</div>
+                  <div className="text-xs text-muted-foreground">Quick Start</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Animated Image */}
+            <div className="relative lg:h-[600px] h-[400px]">
+              {/* Main floating card */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-full max-w-md">
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-spark-gradient rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
+
+                  {/* Main dashboard mockup */}
+                  <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-3xl p-6 shadow-2xl animate-float">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="h-4 bg-gradient-to-r from-spark-purple to-spark-blue rounded animate-shimmer"></div>
+                      <div className="h-3 bg-muted rounded w-3/4 animate-shimmer delay-75"></div>
+                      <div className="h-3 bg-muted rounded w-1/2 animate-shimmer delay-150"></div>
+
+                      <div className="grid grid-cols-2 gap-4 mt-6">
+                        <div className="bg-primary/10 rounded-lg p-3 animate-pulse delay-300">
+                          <div className="w-8 h-8 bg-primary/20 rounded mb-2"></div>
+                          <div className="h-2 bg-primary/30 rounded"></div>
+                        </div>
+                        <div className="bg-accent/10 rounded-lg p-3 animate-pulse delay-500">
+                          <div className="w-8 h-8 bg-accent/20 rounded mb-2"></div>
+                          <div className="h-2 bg-accent/30 rounded"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating elements */}
+                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-spark-purple/20 rounded-full flex items-center justify-center animate-bounce">
+                    <Code className="w-8 h-8 text-spark-purple" />
+                  </div>
+
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-spark-blue/20 rounded-full flex items-center justify-center animate-bounce delay-700">
+                    <Rocket className="w-8 h-8 text-spark-blue" />
+                  </div>
+
+                  <div className="absolute top-1/2 -right-8 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center animate-pulse delay-1000">
+                    <Brain className="w-6 h-6 text-accent" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Background decorative elements */}
+              <div className="absolute top-20 left-10 w-32 h-32 bg-spark-gradient rounded-full opacity-10 animate-pulse"></div>
+              <div className="absolute bottom-20 right-10 w-24 h-24 bg-accent/20 rounded-full opacity-20 animate-pulse delay-500"></div>
+            </div>
           </div>
         </div>
       </section>
