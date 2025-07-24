@@ -26,15 +26,19 @@ const ProjectFormSchema = z.object({
 
 // Create email transporter
 const createTransporter = () => {
-  // For production, use environment variables for email configuration
-  // For now, using a generic SMTP configuration that works with most providers
+  // Check if email credentials are provided
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.log("⚠️  Email credentials not configured. Set EMAIL_USER and EMAIL_PASS environment variables.");
+    return null;
+  }
+
   return nodemailer.createTransporter({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     auth: {
-      user: process.env.EMAIL_USER || 'mrsharma729@gmail.com',
-      pass: process.env.EMAIL_PASS || 'your-app-password-here'
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 };
