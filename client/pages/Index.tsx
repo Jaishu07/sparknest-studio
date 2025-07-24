@@ -244,6 +244,112 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Client Testimonials */}
+      <section className="py-16 px-6 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Don't just take our word for it. Here's what some of our amazing clients have to say about working with SparkNest Studio.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Sparkles key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  "SparkNest Studio delivered our e-commerce platform ahead of schedule and under budget.
+                  Their AI-powered recommendation engine increased our sales by 40% in the first month. Absolutely phenomenal work!"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                    S
+                  </div>
+                  <div>
+                    <div className="font-semibold">Sarah Chen</div>
+                    <div className="text-sm text-muted-foreground">CEO, TechCommerce</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Testimonial 2 */}
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Sparkles key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  "Working with SparkNest's freelancer network was a game-changer. They connected us with top-tier developers
+                  who understood our vision perfectly. The project management was seamless and communication was excellent."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">
+                    M
+                  </div>
+                  <div>
+                    <div className="font-semibold">Marcus Rodriguez</div>
+                    <div className="text-sm text-muted-foreground">Founder, StartupFlow</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Testimonial 3 */}
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Sparkles key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  "The custom AI chatbot they built for our customer service has reduced response times by 80%
+                  while maintaining high satisfaction scores. Their technical expertise is unmatched."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
+                    A
+                  </div>
+                  <div>
+                    <div className="font-semibold">Aisha Patel</div>
+                    <div className="text-sm text-muted-foreground">CTO, CloudServe</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Stats Section */}
+          <div className="mt-16 grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">150+</div>
+              <div className="text-muted-foreground">Projects Delivered</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">95%</div>
+              <div className="text-muted-foreground">Client Satisfaction</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">50+</div>
+              <div className="text-muted-foreground">Expert Freelancers</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+              <div className="text-muted-foreground">Support Available</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-6">
         <div className="container mx-auto">
@@ -254,7 +360,7 @@ export default function Index() {
                 Ready to Transform Your Ideas?
               </h3>
               <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Whether you're a freelancer seeking opportunities, a client with a vision, 
+                Whether you're a freelancer seeking opportunities, a client with a vision,
                 or an entrepreneur ready to build the next groundbreaking product.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
