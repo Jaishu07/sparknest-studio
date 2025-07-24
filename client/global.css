@@ -114,7 +114,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -123,7 +124,8 @@
   }
 
   @keyframes shimmer {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.5;
     }
     50% {

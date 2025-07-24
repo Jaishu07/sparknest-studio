@@ -1,12 +1,34 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Mail, Phone, MapPin, Clock, Send, MessageSquare, ArrowLeft, CheckCircle } from "lucide-react";
+import {
+  Sparkles,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  MessageSquare,
+  ArrowLeft,
+  CheckCircle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
@@ -23,7 +45,7 @@ const initialFormData: ContactFormData = {
   email: "",
   phone: "",
   subject: "",
-  message: ""
+  message: "",
 };
 
 export default function Contact() {
@@ -33,7 +55,7 @@ export default function Contact() {
   const { toast } = useToast();
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,12 +63,12 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formData, formType: 'contact' }),
+        body: JSON.stringify({ ...formData, formType: "contact" }),
       });
 
       const result = await response.json();
@@ -108,10 +130,14 @@ export default function Contact() {
               Let's connect and create something amazing
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Get in <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">Touch</span>
+              Get in{" "}
+              <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
+                Touch
+              </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Ready to start your next project? Have questions about our services? We'd love to hear from you.
+              Ready to start your next project? Have questions about our
+              services? We'd love to hear from you.
             </p>
           </div>
 
@@ -132,8 +158,13 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email Us</h3>
-                      <p className="text-muted-foreground text-sm mb-2">For general inquiries and project discussions</p>
-                      <a href="mailto:mrsharma729@gmail.com" className="text-primary hover:underline">
+                      <p className="text-muted-foreground text-sm mb-2">
+                        For general inquiries and project discussions
+                      </p>
+                      <a
+                        href="mailto:mrsharma729@gmail.com"
+                        className="text-primary hover:underline"
+                      >
                         mrsharma729@gmail.com
                       </a>
                     </div>
@@ -145,11 +176,17 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">WhatsApp</h3>
-                      <p className="text-muted-foreground text-sm mb-2">Quick questions and instant communication</p>
+                      <p className="text-muted-foreground text-sm mb-2">
+                        Quick questions and instant communication
+                      </p>
                       <div className="flex items-center gap-2">
                         <span className="text-primary">+91 9334732506</span>
                         <Button size="sm" asChild>
-                          <a href="https://wa.me/919334732506" target="_blank" rel="noopener noreferrer">
+                          <a
+                            href="https://wa.me/919334732506"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             Chat Now
                           </a>
                         </Button>
@@ -178,7 +215,8 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold mb-1">Location</h3>
                       <p className="text-muted-foreground text-sm">
-                        Remote-first agency<br />
+                        Remote-first agency
+                        <br />
                         Serving clients worldwide
                       </p>
                     </div>
@@ -189,12 +227,18 @@ export default function Contact() {
               {/* Quick Actions */}
               <Card className="bg-spark-gradient text-background border-0">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Ready to Start Your Project?</h3>
+                  <h3 className="text-xl font-bold mb-4">
+                    Ready to Start Your Project?
+                  </h3>
                   <p className="mb-6 opacity-90">
-                    Skip the contact form and jump straight into project planning.
+                    Skip the contact form and jump straight into project
+                    planning.
                   </p>
                   <Link to="/start-project">
-                    <Button size="lg" className="bg-background/20 hover:bg-background/30 text-background border-0 w-full">
+                    <Button
+                      size="lg"
+                      className="bg-background/20 hover:bg-background/30 text-background border-0 w-full"
+                    >
                       Start Your Project
                       <Sparkles className="w-5 h-5 ml-2" />
                     </Button>
@@ -209,16 +253,31 @@ export default function Contact() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-sm">How quickly can you start my project?</h4>
-                    <p className="text-muted-foreground text-sm">Most projects can begin within 1-2 weeks after requirements finalization.</p>
+                    <h4 className="font-semibold text-sm">
+                      How quickly can you start my project?
+                    </h4>
+                    <p className="text-muted-foreground text-sm">
+                      Most projects can begin within 1-2 weeks after
+                      requirements finalization.
+                    </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm">Do you work with international clients?</h4>
-                    <p className="text-muted-foreground text-sm">Yes! We serve clients globally with flexible timezone coordination.</p>
+                    <h4 className="font-semibold text-sm">
+                      Do you work with international clients?
+                    </h4>
+                    <p className="text-muted-foreground text-sm">
+                      Yes! We serve clients globally with flexible timezone
+                      coordination.
+                    </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm">What's your project minimum?</h4>
-                    <p className="text-muted-foreground text-sm">We handle projects starting from $5,000 to enterprise-level solutions.</p>
+                    <h4 className="font-semibold text-sm">
+                      What's your project minimum?
+                    </h4>
+                    <p className="text-muted-foreground text-sm">
+                      We handle projects starting from $5,000 to
+                      enterprise-level solutions.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -232,12 +291,15 @@ export default function Contact() {
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-8 h-8 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">Message Sent! 🎉</h3>
+                    <h3 className="text-2xl font-bold mb-4">
+                      Message Sent! 🎉
+                    </h3>
                     <p className="text-muted-foreground mb-8">
-                      Thanks for reaching out! We've received your message and will get back to you within 24 hours.
+                      Thanks for reaching out! We've received your message and
+                      will get back to you within 24 hours.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button 
+                      <Button
                         onClick={() => {
                           setIsSubmitted(false);
                           setFormData(initialFormData);
@@ -247,7 +309,11 @@ export default function Contact() {
                         Send Another Message
                       </Button>
                       <Button asChild>
-                        <a href="https://wa.me/919334732506" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://wa.me/919334732506"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <MessageSquare className="w-4 h-4 mr-2" />
                           WhatsApp Us
                         </a>
@@ -271,7 +337,9 @@ export default function Contact() {
                           <Input
                             id="name"
                             value={formData.name}
-                            onChange={(e) => handleInputChange('name', e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("name", e.target.value)
+                            }
                             placeholder="Your full name"
                             required
                           />
@@ -282,7 +350,9 @@ export default function Contact() {
                             id="email"
                             type="email"
                             value={formData.email}
-                            onChange={(e) => handleInputChange('email', e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("email", e.target.value)
+                            }
                             placeholder="your@email.com"
                             required
                           />
@@ -294,23 +364,40 @@ export default function Contact() {
                         <Input
                           id="phone"
                           value={formData.phone}
-                          onChange={(e) => handleInputChange('phone', e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("phone", e.target.value)
+                          }
                           placeholder="+1 (555) 123-4567"
                         />
                       </div>
 
                       <div>
                         <Label htmlFor="subject">Subject *</Label>
-                        <Select value={formData.subject} onValueChange={(value) => handleInputChange('subject', value)}>
+                        <Select
+                          value={formData.subject}
+                          onValueChange={(value) =>
+                            handleInputChange("subject", value)
+                          }
+                        >
                           <SelectTrigger>
                             <SelectValue placeholder="What can we help you with?" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="project-inquiry">New Project Inquiry</SelectItem>
-                            <SelectItem value="freelancer-join">Join as Freelancer</SelectItem>
-                            <SelectItem value="partnership">Partnership Opportunity</SelectItem>
-                            <SelectItem value="support">Technical Support</SelectItem>
-                            <SelectItem value="pricing">Pricing Information</SelectItem>
+                            <SelectItem value="project-inquiry">
+                              New Project Inquiry
+                            </SelectItem>
+                            <SelectItem value="freelancer-join">
+                              Join as Freelancer
+                            </SelectItem>
+                            <SelectItem value="partnership">
+                              Partnership Opportunity
+                            </SelectItem>
+                            <SelectItem value="support">
+                              Technical Support
+                            </SelectItem>
+                            <SelectItem value="pricing">
+                              Pricing Information
+                            </SelectItem>
                             <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
@@ -321,16 +408,18 @@ export default function Contact() {
                         <Textarea
                           id="message"
                           value={formData.message}
-                          onChange={(e) => handleInputChange('message', e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("message", e.target.value)
+                          }
                           placeholder="Tell us about your project or inquiry in detail..."
                           className="min-h-[120px]"
                           required
                         />
                       </div>
 
-                      <Button 
-                        type="submit" 
-                        size="lg" 
+                      <Button
+                        type="submit"
+                        size="lg"
                         disabled={isSubmitting}
                         className="w-full"
                       >

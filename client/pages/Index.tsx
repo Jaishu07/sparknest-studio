@@ -1,7 +1,26 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Sparkles, Users, Rocket, Brain, Code, Palette, Zap, Shield, Clock, Target, CheckCircle } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Users,
+  Rocket,
+  Brain,
+  Code,
+  Palette,
+  Zap,
+  Shield,
+  Clock,
+  Target,
+  CheckCircle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Index() {
@@ -23,11 +42,29 @@ export default function Index() {
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link>
-              <Link to="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">Portfolio</Link>
-              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
+              <Link
+                to="/services"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Services
+              </Link>
+              <Link
+                to="/portfolio"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Portfolio
+              </Link>
+              <Link
+                to="/about"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                About
+              </Link>
               <Link to="/contact">
-                <Button variant="outline" className="border-primary/20 hover:bg-primary/10">
+                <Button
+                  variant="outline"
+                  className="border-primary/20 hover:bg-primary/10"
+                >
                   Contact Us
                 </Button>
               </Link>
@@ -58,9 +95,10 @@ export default function Index() {
               </h1>
 
               <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-                We're not just another software agency. We're your technology partners,
-                crafting cutting-edge web applications, mobile solutions, and AI-powered tools
-                that drive real business results.
+                We're not just another software agency. We're your technology
+                partners, crafting cutting-edge web applications, mobile
+                solutions, and AI-powered tools that drive real business
+                results.
               </p>
 
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
@@ -76,13 +114,20 @@ export default function Index() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link to="/start-project">
-                  <Button size="lg" className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8 py-4 text-lg w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8 py-4 text-lg w-full sm:w-auto"
+                  >
                     Start Your Project
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
                 <Link to="/portfolio">
-                  <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10 px-8 py-4 text-lg w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-primary/20 hover:bg-primary/10 px-8 py-4 text-lg w-full sm:w-auto"
+                  >
                     View Our Work
                   </Button>
                 </Link>
@@ -90,16 +135,26 @@ export default function Index() {
 
               <div className="flex items-center justify-center lg:justify-start gap-6 lg:gap-8 pt-4">
                 <div className="text-center">
-                  <div className="text-xl lg:text-2xl font-bold text-primary">4.9/5</div>
-                  <div className="text-xs text-muted-foreground">Client Rating</div>
+                  <div className="text-xl lg:text-2xl font-bold text-primary">
+                    4.9/5
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    Client Rating
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl lg:text-2xl font-bold text-primary">24/7</div>
+                  <div className="text-xl lg:text-2xl font-bold text-primary">
+                    24/7
+                  </div>
                   <div className="text-xs text-muted-foreground">Support</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl lg:text-2xl font-bold text-primary">2-4 Weeks</div>
-                  <div className="text-xs text-muted-foreground">Quick Start</div>
+                  <div className="text-xl lg:text-2xl font-bold text-primary">
+                    2-4 Weeks
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    Quick Start
+                  </div>
                 </div>
               </div>
             </div>
@@ -167,7 +222,8 @@ export default function Index() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Core Services</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From connecting talent to building cutting-edge products and AI solutions
+              From connecting talent to building cutting-edge products and AI
+              solutions
             </p>
           </div>
 
@@ -178,9 +234,12 @@ export default function Index() {
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Users className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle className="text-2xl">Collaborative Ecosystem</CardTitle>
+                <CardTitle className="text-2xl">
+                  Collaborative Ecosystem
+                </CardTitle>
                 <CardDescription className="text-base">
-                  Connecting freelancers with clients in a seamless, managed environment
+                  Connecting freelancers with clients in a seamless, managed
+                  environment
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -202,7 +261,9 @@ export default function Index() {
                   </ul>
                 </div>
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-accent">For Freelancers:</h4>
+                  <h4 className="font-semibold text-accent">
+                    For Freelancers:
+                  </h4>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
@@ -219,7 +280,10 @@ export default function Index() {
                   </ul>
                 </div>
                 <Link to="/start-project">
-                  <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
+                  <Button
+                    variant="outline"
+                    className="w-full border-primary/20 hover:bg-primary/10 mt-6"
+                  >
                     Start Your Project
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -235,7 +299,8 @@ export default function Index() {
                 </div>
                 <CardTitle className="text-2xl">Product Development</CardTitle>
                 <CardDescription className="text-base">
-                  From concept to market-ready applications with modern tech stack
+                  From concept to market-ready applications with modern tech
+                  stack
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -280,7 +345,10 @@ export default function Index() {
                   </div>
                 </div>
                 <Link to="/start-project">
-                  <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
+                  <Button
+                    variant="outline"
+                    className="w-full border-primary/20 hover:bg-primary/10 mt-6"
+                  >
                     Start Building
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -296,12 +364,15 @@ export default function Index() {
                 </div>
                 <CardTitle className="text-2xl">AI Tool Building</CardTitle>
                 <CardDescription className="text-base">
-                  Harnessing the power of artificial intelligence for intelligent solutions
+                  Harnessing the power of artificial intelligence for
+                  intelligent solutions
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="bg-muted/30 p-4 rounded-lg">
-                  <div className="text-xs text-muted-foreground mb-2">Example ML Model:</div>
+                  <div className="text-xs text-muted-foreground mb-2">
+                    Example ML Model:
+                  </div>
                   <div className="font-mono text-sm bg-background/50 p-2 rounded border">
                     P(churn) = σ(w₁x₁ + w₂x₂ + ... + b)
                   </div>
@@ -310,34 +381,51 @@ export default function Index() {
                   <div className="flex items-start gap-3">
                     <Brain className="w-4 h-4 text-primary mt-0.5" />
                     <div>
-                      <div className="text-sm font-medium">Custom AI Models</div>
-                      <div className="text-xs text-muted-foreground">Predictive analytics, NLP, computer vision</div>
+                      <div className="text-sm font-medium">
+                        Custom AI Models
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Predictive analytics, NLP, computer vision
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Zap className="w-4 h-4 text-primary mt-0.5" />
                     <div>
-                      <div className="text-sm font-medium">AI-Powered Automation</div>
-                      <div className="text-xs text-muted-foreground">Intelligent chatbots, data analysis</div>
+                      <div className="text-sm font-medium">
+                        AI-Powered Automation
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Intelligent chatbots, data analysis
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Sparkles className="w-4 h-4 text-primary mt-0.5" />
                     <div>
-                      <div className="text-sm font-medium">Generative AI Solutions</div>
-                      <div className="text-xs text-muted-foreground">Content creation, code generation</div>
+                      <div className="text-sm font-medium">
+                        Generative AI Solutions
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Content creation, code generation
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Code className="w-4 h-4 text-primary mt-0.5" />
                     <div>
                       <div className="text-sm font-medium">AI Integration</div>
-                      <div className="text-xs text-muted-foreground">Seamless workflow enhancement</div>
+                      <div className="text-xs text-muted-foreground">
+                        Seamless workflow enhancement
+                      </div>
                     </div>
                   </div>
                 </div>
                 <Link to="/start-project">
-                  <Button variant="outline" className="w-full border-primary/20 hover:bg-primary/10 mt-6">
+                  <Button
+                    variant="outline"
+                    className="w-full border-primary/20 hover:bg-primary/10 mt-6"
+                  >
                     Explore AI
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -354,7 +442,8 @@ export default function Index() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Don't just take our word for it. Here's what some of our amazing clients have to say about working with SparkNest Studio.
+              Don't just take our word for it. Here's what some of our amazing
+              clients have to say about working with SparkNest Studio.
             </p>
           </div>
 
@@ -364,12 +453,17 @@ export default function Index() {
               <CardContent className="p-6">
                 <div className="flex mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <Sparkles key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Sparkles
+                      key={star}
+                      className="w-5 h-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "SparkNest Studio delivered our e-commerce platform ahead of schedule and under budget.
-                  Their AI-powered recommendation engine increased our sales by 40% in the first month. Absolutely phenomenal work!"
+                  "SparkNest Studio delivered our e-commerce platform ahead of
+                  schedule and under budget. Their AI-powered recommendation
+                  engine increased our sales by 40% in the first month.
+                  Absolutely phenomenal work!"
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -377,7 +471,9 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="font-semibold">Sarah Chen</div>
-                    <div className="text-sm text-muted-foreground">CEO, TechCommerce</div>
+                    <div className="text-sm text-muted-foreground">
+                      CEO, TechCommerce
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -388,12 +484,17 @@ export default function Index() {
               <CardContent className="p-6">
                 <div className="flex mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <Sparkles key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Sparkles
+                      key={star}
+                      className="w-5 h-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "Working with SparkNest's freelancer network was a game-changer. They connected us with top-tier developers
-                  who understood our vision perfectly. The project management was seamless and communication was excellent."
+                  "Working with SparkNest's freelancer network was a
+                  game-changer. They connected us with top-tier developers who
+                  understood our vision perfectly. The project management was
+                  seamless and communication was excellent."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -401,7 +502,9 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="font-semibold">Marcus Rodriguez</div>
-                    <div className="text-sm text-muted-foreground">Founder, StartupFlow</div>
+                    <div className="text-sm text-muted-foreground">
+                      Founder, StartupFlow
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -412,12 +515,16 @@ export default function Index() {
               <CardContent className="p-6">
                 <div className="flex mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <Sparkles key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Sparkles
+                      key={star}
+                      className="w-5 h-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "The custom AI chatbot they built for our customer service has reduced response times by 80%
-                  while maintaining high satisfaction scores. Their technical expertise is unmatched."
+                  "The custom AI chatbot they built for our customer service has
+                  reduced response times by 80% while maintaining high
+                  satisfaction scores. Their technical expertise is unmatched."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -425,7 +532,9 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="font-semibold">Aisha Patel</div>
-                    <div className="text-sm text-muted-foreground">CTO, CloudServe</div>
+                    <div className="text-sm text-muted-foreground">
+                      CTO, CloudServe
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -464,18 +573,27 @@ export default function Index() {
                 Ready to Transform Your Ideas?
               </h3>
               <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Whether you're a freelancer seeking opportunities, a client with a vision,
-                or an entrepreneur ready to build the next groundbreaking product.
+                Whether you're a freelancer seeking opportunities, a client with
+                a vision, or an entrepreneur ready to build the next
+                groundbreaking product.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/start-project">
-                  <Button size="lg" variant="secondary" className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0"
+                  >
                     Get Started Today
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-background/30 text-background hover:bg-background/10">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-background/30 text-background hover:bg-background/10"
+                  >
                     Schedule Consultation
                   </Button>
                 </Link>

@@ -63,15 +63,17 @@ export default {
         },
       },
       backgroundImage: {
-        'spark-gradient': 'linear-gradient(135deg, hsl(var(--spark-gradient-start)), hsl(var(--spark-gradient-end)))',
-        'spark-gradient-vertical': 'linear-gradient(180deg, hsl(var(--spark-gradient-start)), hsl(var(--spark-gradient-end)))',
+        "spark-gradient":
+          "linear-gradient(135deg, hsl(var(--spark-gradient-start)), hsl(var(--spark-gradient-end)))",
+        "spark-gradient-vertical":
+          "linear-gradient(180deg, hsl(var(--spark-gradient-start)), hsl(var(--spark-gradient-end)))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
         xl: "calc(var(--radius) + 4px)",
-        '2xl': "calc(var(--radius) + 8px)",
+        "2xl": "calc(var(--radius) + 8px)",
       },
       keyframes: {
         "accordion-down": {
@@ -90,7 +92,7 @@ export default {
             height: "0",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": {
             transform: "translateY(0px)",
           },
@@ -98,7 +100,7 @@ export default {
             transform: "translateY(-20px)",
           },
         },
-        "shimmer": {
+        shimmer: {
           "0%, 100%": {
             opacity: "0.5",
           },
@@ -110,8 +112,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 6s ease-in-out infinite",
-        "shimmer": "shimmer 2s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        shimmer: "shimmer 2s ease-in-out infinite",
       },
     },
   },

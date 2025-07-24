@@ -1,7 +1,28 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, ArrowLeft, Users, Rocket, Brain, Code, Palette, Zap, Shield, Clock, Target, CheckCircle, ArrowRight, MessageSquare } from "lucide-react";
+import {
+  Sparkles,
+  ArrowLeft,
+  Users,
+  Rocket,
+  Brain,
+  Code,
+  Palette,
+  Zap,
+  Shield,
+  Clock,
+  Target,
+  CheckCircle,
+  ArrowRight,
+  MessageSquare,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Services() {
@@ -18,7 +39,7 @@ export default function Services() {
         "Quality assurance and delivery tracking",
         "Transparent communication channels",
         "Milestone-based payment protection",
-        "24/7 support and mediation"
+        "24/7 support and mediation",
       ],
       process: [
         "Submit your project requirements",
@@ -26,10 +47,10 @@ export default function Services() {
         "Review proposals and select your team",
         "Collaborate through our managed platform",
         "Receive regular progress updates",
-        "Complete project with satisfaction guarantee"
+        "Complete project with satisfaction guarantee",
       ],
       pricing: "Project-based pricing starting from $2,000",
-      timeline: "1-2 weeks to team assembly, project timelines vary"
+      timeline: "1-2 weeks to team assembly, project timelines vary",
     },
     {
       id: "product",
@@ -43,7 +64,7 @@ export default function Services() {
         "Agile development methodology",
         "Modern tech stack (React, Node.js, Python)",
         "Quality assurance and testing",
-        "Deployment and ongoing support"
+        "Deployment and ongoing support",
       ],
       process: [
         "Initial consultation and requirements gathering",
@@ -51,10 +72,10 @@ export default function Services() {
         "Sprint-based development with regular demos",
         "User testing and feedback integration",
         "Production deployment and optimization",
-        "Post-launch support and maintenance"
+        "Post-launch support and maintenance",
       ],
       pricing: "Fixed-price projects from $15,000 to $500,000+",
-      timeline: "8-24 weeks depending on complexity"
+      timeline: "8-24 weeks depending on complexity",
     },
     {
       id: "ai",
@@ -68,7 +89,7 @@ export default function Services() {
         "Computer vision solutions",
         "Predictive analytics and forecasting",
         "AI-powered automation tools",
-        "Integration with existing systems"
+        "Integration with existing systems",
       ],
       process: [
         "Data audit and feasibility analysis",
@@ -76,19 +97,53 @@ export default function Services() {
         "Development and training of AI models",
         "Testing and validation with real data",
         "Integration and deployment",
-        "Monitoring and continuous improvement"
+        "Monitoring and continuous improvement",
       ],
       pricing: "Custom AI solutions from $25,000",
-      timeline: "12-32 weeks for complex AI implementations"
-    }
+      timeline: "12-32 weeks for complex AI implementations",
+    },
   ];
 
   const technologies = {
-    frontend: ["React", "Vue.js", "Angular", "TypeScript", "Next.js", "Tailwind CSS"],
-    backend: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL", "REST APIs"],
-    mobile: ["React Native", "Flutter", "iOS Native", "Android Native", "Progressive Web Apps"],
-    ai: ["TensorFlow", "PyTorch", "OpenAI GPT", "Computer Vision", "NLP", "Predictive Analytics"],
-    infrastructure: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI/CD", "Monitoring"]
+    frontend: [
+      "React",
+      "Vue.js",
+      "Angular",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+    ],
+    backend: [
+      "Node.js",
+      "Python",
+      "PostgreSQL",
+      "MongoDB",
+      "GraphQL",
+      "REST APIs",
+    ],
+    mobile: [
+      "React Native",
+      "Flutter",
+      "iOS Native",
+      "Android Native",
+      "Progressive Web Apps",
+    ],
+    ai: [
+      "TensorFlow",
+      "PyTorch",
+      "OpenAI GPT",
+      "Computer Vision",
+      "NLP",
+      "Predictive Analytics",
+    ],
+    infrastructure: [
+      "AWS",
+      "Google Cloud",
+      "Docker",
+      "Kubernetes",
+      "CI/CD",
+      "Monitoring",
+    ],
   };
 
   return (
@@ -126,11 +181,15 @@ export default function Services() {
             Comprehensive digital solutions
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Our <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">Services</span>
+            Our{" "}
+            <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
+              Services
+            </span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            From connecting talent to building cutting-edge products and AI solutions, 
-            we provide end-to-end services for your digital transformation.
+            From connecting talent to building cutting-edge products and AI
+            solutions, we provide end-to-end services for your digital
+            transformation.
           </p>
         </div>
       </section>
@@ -139,14 +198,21 @@ export default function Services() {
       <section className="py-16 px-6">
         <div className="container mx-auto space-y-24">
           {services.map((service, index) => (
-            <div key={service.id} className={`${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} flex flex-col lg:flex-row gap-12 items-center`}>
+            <div
+              key={service.id}
+              className={`${index % 2 === 1 ? "lg:flex-row-reverse" : ""} flex flex-col lg:flex-row gap-12 items-center`}
+            >
               <div className="flex-1 space-y-8">
                 <div>
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center text-white mb-6`}>
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center text-white mb-6`}
+                  >
                     {service.icon}
                   </div>
                   <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
-                  <p className="text-xl text-muted-foreground leading-relaxed">{service.description}</p>
+                  <p className="text-xl text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
 
                 <div>
@@ -169,9 +235,7 @@ export default function Services() {
                     </Button>
                   </Link>
                   <Link to="/contact">
-                    <Button variant="outline">
-                      Learn More
-                    </Button>
+                    <Button variant="outline">Learn More</Button>
                   </Link>
                 </div>
               </div>
@@ -180,7 +244,9 @@ export default function Services() {
                 <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
                   <CardHeader>
                     <CardTitle>Our Process</CardTitle>
-                    <CardDescription>How we deliver exceptional results</CardDescription>
+                    <CardDescription>
+                      How we deliver exceptional results
+                    </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div className="space-y-4">
@@ -197,11 +263,17 @@ export default function Services() {
                     <div className="border-t pt-4 space-y-3">
                       <div>
                         <span className="text-sm font-semibold">Pricing: </span>
-                        <span className="text-sm text-muted-foreground">{service.pricing}</span>
+                        <span className="text-sm text-muted-foreground">
+                          {service.pricing}
+                        </span>
                       </div>
                       <div>
-                        <span className="text-sm font-semibold">Timeline: </span>
-                        <span className="text-sm text-muted-foreground">{service.timeline}</span>
+                        <span className="text-sm font-semibold">
+                          Timeline:{" "}
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          {service.timeline}
+                        </span>
                       </div>
                     </div>
                   </CardContent>
@@ -218,7 +290,8 @@ export default function Services() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Technology Expertise</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We work with the latest and most reliable technologies to ensure your project's success
+              We work with the latest and most reliable technologies to ensure
+              your project's success
             </p>
           </div>
 
@@ -233,7 +306,9 @@ export default function Services() {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {technologies.frontend.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -249,7 +324,9 @@ export default function Services() {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {technologies.backend.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -265,7 +342,9 @@ export default function Services() {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {technologies.mobile.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -281,7 +360,9 @@ export default function Services() {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {technologies.ai.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -297,7 +378,9 @@ export default function Services() {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {technologies.infrastructure.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -312,7 +395,8 @@ export default function Services() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  We're always learning new technologies. If you have specific requirements, let's discuss them.
+                  We're always learning new technologies. If you have specific
+                  requirements, let's discuss them.
                 </p>
                 <Link to="/contact">
                   <Button variant="outline" size="sm" className="w-full">
@@ -331,21 +415,28 @@ export default function Services() {
           <Card className="bg-spark-gradient text-background border-0 overflow-hidden relative">
             <div className="absolute inset-0 bg-gradient-to-r from-background/10 to-background/5"></div>
             <CardContent className="p-12 text-center relative">
-              <h3 className="text-3xl font-bold mb-4">
-                Ready to Get Started?
-              </h3>
+              <h3 className="text-3xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Choose the service that fits your needs, or let us help you determine the best approach for your project.
+                Choose the service that fits your needs, or let us help you
+                determine the best approach for your project.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/start-project">
-                  <Button size="lg" variant="secondary" className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0"
+                  >
                     Start Your Project
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-background/30 text-background hover:bg-background/10">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-background/30 text-background hover:bg-background/10"
+                  >
                     Schedule Consultation
                   </Button>
                 </Link>

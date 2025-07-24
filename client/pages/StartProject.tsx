@@ -1,14 +1,32 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, ArrowLeft, Send, CheckCircle, MessageSquare } from "lucide-react";
+import {
+  Sparkles,
+  ArrowLeft,
+  Send,
+  CheckCircle,
+  MessageSquare,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
@@ -35,7 +53,7 @@ const initialFormData: ProjectFormData = {
   timeline: "",
   description: "",
   features: [],
-  additionalInfo: ""
+  additionalInfo: "",
 };
 
 const featureOptions = [
@@ -58,7 +76,7 @@ const featureOptions = [
   "Maintenance & Support",
   "AI/ML Integration",
   "Data Visualization",
-  "E-commerce Functionality"
+  "E-commerce Functionality",
 ];
 
 export default function StartProject() {
@@ -68,15 +86,15 @@ export default function StartProject() {
   const { toast } = useToast();
 
   const handleInputChange = (field: keyof ProjectFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleFeatureToggle = (feature: string, checked: boolean) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      features: checked 
+      features: checked
         ? [...prev.features, feature]
-        : prev.features.filter(f => f !== feature)
+        : prev.features.filter((f) => f !== feature),
     }));
   };
 
@@ -85,10 +103,10 @@ export default function StartProject() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/project', {
-        method: 'POST',
+      const response = await fetch("/api/project", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -99,7 +117,8 @@ export default function StartProject() {
         setIsSubmitted(true);
         toast({
           title: "Project Submitted Successfully!",
-          description: "We'll review your project and get back to you within 24 hours.",
+          description:
+            "We'll review your project and get back to you within 24 hours.",
         });
         console.log("✅ Project form submitted successfully");
       } else {
@@ -145,32 +164,48 @@ export default function StartProject() {
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Project Submitted Successfully! 🎉</h1>
+              <h1 className="text-3xl font-bold mb-4">
+                Project Submitted Successfully! 🎉
+              </h1>
               <p className="text-muted-foreground mb-8 text-lg">
-                Thank you for choosing SparkNest Studio! We've received your project details and our team will review them carefully.
+                Thank you for choosing SparkNest Studio! We've received your
+                project details and our team will review them carefully.
               </p>
               <div className="bg-muted/30 p-6 rounded-lg mb-8">
                 <h3 className="font-semibold mb-4">What happens next?</h3>
                 <div className="space-y-3 text-left">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-xs text-primary-foreground font-bold">1</div>
+                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-xs text-primary-foreground font-bold">
+                      1
+                    </div>
                     <div>
                       <div className="font-medium">Project Review</div>
-                      <div className="text-sm text-muted-foreground">Our team reviews your project requirements (within 24 hours)</div>
+                      <div className="text-sm text-muted-foreground">
+                        Our team reviews your project requirements (within 24
+                        hours)
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-xs text-primary-foreground font-bold">2</div>
+                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-xs text-primary-foreground font-bold">
+                      2
+                    </div>
                     <div>
                       <div className="font-medium">Initial Consultation</div>
-                      <div className="text-sm text-muted-foreground">We'll schedule a call to discuss your project in detail</div>
+                      <div className="text-sm text-muted-foreground">
+                        We'll schedule a call to discuss your project in detail
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-xs text-primary-foreground font-bold">3</div>
+                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-xs text-primary-foreground font-bold">
+                      3
+                    </div>
                     <div>
                       <div className="font-medium">Proposal & Timeline</div>
-                      <div className="text-sm text-muted-foreground">Receive a detailed proposal with timeline and pricing</div>
+                      <div className="text-sm text-muted-foreground">
+                        Receive a detailed proposal with timeline and pricing
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -183,7 +218,11 @@ export default function StartProject() {
                   </Button>
                 </Link>
                 <Button asChild>
-                  <a href="https://wa.me/919334732506" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://wa.me/919334732506"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Chat on WhatsApp
                   </a>
@@ -232,10 +271,14 @@ export default function StartProject() {
               Let's bring your idea to life
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Start Your <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">Project</span>
+              Start Your{" "}
+              <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
+                Project
+              </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Tell us about your project and we'll create a custom solution that exceeds your expectations.
+              Tell us about your project and we'll create a custom solution that
+              exceeds your expectations.
             </p>
           </div>
 
@@ -244,9 +287,7 @@ export default function StartProject() {
             <Card>
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
-                <CardDescription>
-                  Let us know how to reach you
-                </CardDescription>
+                <CardDescription>Let us know how to reach you</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -255,7 +296,9 @@ export default function StartProject() {
                     <Input
                       id="name"
                       value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("name", e.target.value)
+                      }
                       placeholder="John Doe"
                       required
                     />
@@ -266,7 +309,9 @@ export default function StartProject() {
                       id="email"
                       type="email"
                       value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
                       placeholder="john@example.com"
                       required
                     />
@@ -278,7 +323,9 @@ export default function StartProject() {
                     <Input
                       id="company"
                       value={formData.company}
-                      onChange={(e) => handleInputChange('company', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("company", e.target.value)
+                      }
                       placeholder="Your Company Name"
                     />
                   </div>
@@ -287,7 +334,9 @@ export default function StartProject() {
                     <Input
                       id="phone"
                       value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("phone", e.target.value)
+                      }
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -306,37 +355,55 @@ export default function StartProject() {
               <CardContent className="space-y-6">
                 <div>
                   <Label>Project Type *</Label>
-                  <RadioGroup 
-                    value={formData.projectType} 
-                    onValueChange={(value) => handleInputChange('projectType', value)}
+                  <RadioGroup
+                    value={formData.projectType}
+                    onValueChange={(value) =>
+                      handleInputChange("projectType", value)
+                    }
                     className="grid md:grid-cols-2 gap-4 mt-3"
                   >
                     <div className="flex items-center space-x-2 border rounded-lg p-4">
                       <RadioGroupItem value="web" id="web" />
                       <Label htmlFor="web" className="flex-1 cursor-pointer">
                         <div className="font-medium">Web Application</div>
-                        <div className="text-sm text-muted-foreground">React, Vue, Angular, etc.</div>
+                        <div className="text-sm text-muted-foreground">
+                          React, Vue, Angular, etc.
+                        </div>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-lg p-4">
                       <RadioGroupItem value="mobile" id="mobile" />
                       <Label htmlFor="mobile" className="flex-1 cursor-pointer">
                         <div className="font-medium">Mobile Application</div>
-                        <div className="text-sm text-muted-foreground">iOS, Android, Flutter</div>
+                        <div className="text-sm text-muted-foreground">
+                          iOS, Android, Flutter
+                        </div>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-lg p-4">
                       <RadioGroupItem value="ai" id="ai" />
                       <Label htmlFor="ai" className="flex-1 cursor-pointer">
                         <div className="font-medium">AI/ML Solution</div>
-                        <div className="text-sm text-muted-foreground">Custom AI models, automation</div>
+                        <div className="text-sm text-muted-foreground">
+                          Custom AI models, automation
+                        </div>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-lg p-4">
-                      <RadioGroupItem value="freelancer-collaboration" id="freelancer-collaboration" />
-                      <Label htmlFor="freelancer-collaboration" className="flex-1 cursor-pointer">
-                        <div className="font-medium">Freelancer Collaboration</div>
-                        <div className="text-sm text-muted-foreground">Join our network or hire talent</div>
+                      <RadioGroupItem
+                        value="freelancer-collaboration"
+                        id="freelancer-collaboration"
+                      />
+                      <Label
+                        htmlFor="freelancer-collaboration"
+                        className="flex-1 cursor-pointer"
+                      >
+                        <div className="font-medium">
+                          Freelancer Collaboration
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          Join our network or hire talent
+                        </div>
                       </Label>
                     </div>
                   </RadioGroup>
@@ -345,15 +412,24 @@ export default function StartProject() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="budget">Budget Range *</Label>
-                    <Select value={formData.budget} onValueChange={(value) => handleInputChange('budget', value)}>
+                    <Select
+                      value={formData.budget}
+                      onValueChange={(value) =>
+                        handleInputChange("budget", value)
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Select your budget range" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="under-5k">Under $5,000</SelectItem>
                         <SelectItem value="5k-15k">$5,000 - $15,000</SelectItem>
-                        <SelectItem value="15k-50k">$15,000 - $50,000</SelectItem>
-                        <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
+                        <SelectItem value="15k-50k">
+                          $15,000 - $50,000
+                        </SelectItem>
+                        <SelectItem value="50k-100k">
+                          $50,000 - $100,000
+                        </SelectItem>
                         <SelectItem value="over-100k">Over $100,000</SelectItem>
                         <SelectItem value="discuss">Let's discuss</SelectItem>
                       </SelectContent>
@@ -361,17 +437,26 @@ export default function StartProject() {
                   </div>
                   <div>
                     <Label htmlFor="timeline">Expected Timeline *</Label>
-                    <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>
+                    <Select
+                      value={formData.timeline}
+                      onValueChange={(value) =>
+                        handleInputChange("timeline", value)
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Select timeline" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="asap">ASAP (Rush project)</SelectItem>
+                        <SelectItem value="asap">
+                          ASAP (Rush project)
+                        </SelectItem>
                         <SelectItem value="1-month">1 Month</SelectItem>
                         <SelectItem value="2-3-months">2-3 Months</SelectItem>
                         <SelectItem value="3-6-months">3-6 Months</SelectItem>
                         <SelectItem value="6-months-plus">6+ Months</SelectItem>
-                        <SelectItem value="flexible">Flexible timeline</SelectItem>
+                        <SelectItem value="flexible">
+                          Flexible timeline
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -382,7 +467,9 @@ export default function StartProject() {
                   <Textarea
                     id="description"
                     value={formData.description}
-                    onChange={(e) => handleInputChange('description', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("description", e.target.value)
+                    }
                     placeholder="Describe your project in detail. What problem are you solving? Who is your target audience? What are your main goals?"
                     className="min-h-[120px]"
                     required
@@ -406,9 +493,14 @@ export default function StartProject() {
                       <Checkbox
                         id={feature}
                         checked={formData.features.includes(feature)}
-                        onCheckedChange={(checked) => handleFeatureToggle(feature, checked as boolean)}
+                        onCheckedChange={(checked) =>
+                          handleFeatureToggle(feature, checked as boolean)
+                        }
                       />
-                      <Label htmlFor={feature} className="text-sm cursor-pointer">
+                      <Label
+                        htmlFor={feature}
+                        className="text-sm cursor-pointer"
+                      >
                         {feature}
                       </Label>
                     </div>
@@ -416,7 +508,9 @@ export default function StartProject() {
                 </div>
                 {formData.features.length > 0 && (
                   <div className="mt-4">
-                    <div className="text-sm font-medium mb-2">Selected Features:</div>
+                    <div className="text-sm font-medium mb-2">
+                      Selected Features:
+                    </div>
                     <div className="flex flex-wrap gap-2">
                       {formData.features.map((feature) => (
                         <Badge key={feature} variant="secondary">
@@ -440,7 +534,9 @@ export default function StartProject() {
               <CardContent>
                 <Textarea
                   value={formData.additionalInfo}
-                  onChange={(e) => handleInputChange('additionalInfo', e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("additionalInfo", e.target.value)
+                  }
                   placeholder="Share any additional requirements, preferences, existing systems to integrate with, design inspirations, or specific technologies you prefer."
                   className="min-h-[100px]"
                 />
@@ -450,13 +546,16 @@ export default function StartProject() {
             {/* Submit */}
             <Card className="bg-spark-gradient text-background border-0">
               <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  Ready to Get Started?
+                </h3>
                 <p className="mb-6 opacity-90">
-                  We'll review your project and get back to you within 24 hours with a detailed proposal.
+                  We'll review your project and get back to you within 24 hours
+                  with a detailed proposal.
                 </p>
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   disabled={isSubmitting}
                   className="bg-background/20 hover:bg-background/30 text-background border-0 min-w-[200px]"
                 >

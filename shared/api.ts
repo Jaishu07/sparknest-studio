@@ -20,7 +20,7 @@ export interface ContactFormData {
   phone?: string;
   subject: string;
   message: string;
-  formType: 'contact' | 'project';
+  formType: "contact" | "project";
 }
 
 /**
@@ -31,7 +31,7 @@ export interface ProjectFormData {
   email: string;
   company?: string;
   phone?: string;
-  projectType: 'web' | 'mobile' | 'ai' | 'freelancer-collaboration';
+  projectType: "web" | "mobile" | "ai" | "freelancer-collaboration";
   budget: string;
   timeline: string;
   description: string;

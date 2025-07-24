@@ -1,7 +1,24 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, ArrowLeft, Users, Target, Zap, Heart, Code, Palette, Brain, MessageSquare } from "lucide-react";
+import {
+  Sparkles,
+  ArrowLeft,
+  Users,
+  Target,
+  Zap,
+  Heart,
+  Code,
+  Palette,
+  Brain,
+  MessageSquare,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function About() {
@@ -10,53 +27,61 @@ export default function About() {
       name: "Alex Chen",
       role: "Founder & Lead Developer",
       expertise: ["React", "Node.js", "AI/ML"],
-      description: "Full-stack developer with 8+ years experience building scalable web applications and AI solutions.",
-      avatar: "A"
+      description:
+        "Full-stack developer with 8+ years experience building scalable web applications and AI solutions.",
+      avatar: "A",
     },
     {
       name: "Sarah Kim",
       role: "UI/UX Design Lead",
       expertise: ["Figma", "Design Systems", "User Research"],
-      description: "Creative designer passionate about crafting intuitive user experiences that drive engagement.",
-      avatar: "S"
+      description:
+        "Creative designer passionate about crafting intuitive user experiences that drive engagement.",
+      avatar: "S",
     },
     {
       name: "Marcus Rodriguez",
       role: "AI/ML Specialist",
       expertise: ["Python", "TensorFlow", "NLP"],
-      description: "Data scientist and ML engineer specializing in custom AI models and automation solutions.",
-      avatar: "M"
+      description:
+        "Data scientist and ML engineer specializing in custom AI models and automation solutions.",
+      avatar: "M",
     },
     {
       name: "Priya Sharma",
       role: "Project Manager",
       expertise: ["Agile", "Client Relations", "Quality Assurance"],
-      description: "Experienced PM ensuring projects deliver on time, within scope, and exceed client expectations.",
-      avatar: "P"
-    }
+      description:
+        "Experienced PM ensuring projects deliver on time, within scope, and exceed client expectations.",
+      avatar: "P",
+    },
   ];
 
   const values = [
     {
       icon: <Target className="w-8 h-8" />,
       title: "Excellence First",
-      description: "We never compromise on quality. Every line of code, every pixel, every interaction is crafted with precision."
+      description:
+        "We never compromise on quality. Every line of code, every pixel, every interaction is crafted with precision.",
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Collaborative Spirit",
-      description: "Success comes from teamwork. We believe in transparent communication and shared ownership of outcomes."
+      description:
+        "Success comes from teamwork. We believe in transparent communication and shared ownership of outcomes.",
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Innovation Drive",
-      description: "We stay ahead of technology trends, continuously learning and adopting cutting-edge solutions."
+      description:
+        "We stay ahead of technology trends, continuously learning and adopting cutting-edge solutions.",
     },
     {
       icon: <Heart className="w-8 h-8" />,
       title: "Client Success",
-      description: "Your success is our success. We're not just service providers; we're your technology partners."
-    }
+      description:
+        "Your success is our success. We're not just service providers; we're your technology partners.",
+    },
   ];
 
   return (
@@ -94,11 +119,15 @@ export default function About() {
             Where innovation meets execution
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            About <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">SparkNest</span>
+            About{" "}
+            <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
+              SparkNest
+            </span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            We're a passionate team of developers, designers, and innovators dedicated to 
-            transforming brilliant ideas into exceptional digital realities.
+            We're a passionate team of developers, designers, and innovators
+            dedicated to transforming brilliant ideas into exceptional digital
+            realities.
           </p>
         </div>
       </section>
@@ -111,17 +140,21 @@ export default function About() {
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  SparkNest Studio was born from a simple observation: the gap between having a great idea 
-                  and bringing it to life was too wide for many entrepreneurs and businesses.
+                  SparkNest Studio was born from a simple observation: the gap
+                  between having a great idea and bringing it to life was too
+                  wide for many entrepreneurs and businesses.
                 </p>
                 <p>
-                  Founded in 2020, we started as a small team of passionate developers who believed that 
-                  technology should be accessible, scalable, and transformative. Today, we've grown into 
-                  a dynamic agency that has delivered over 150 successful projects.
+                  Founded in 2020, we started as a small team of passionate
+                  developers who believed that technology should be accessible,
+                  scalable, and transformative. Today, we've grown into a
+                  dynamic agency that has delivered over 150 successful
+                  projects.
                 </p>
                 <p>
-                  Our mission remains unchanged: to bridge the gap between brilliant concepts and tangible 
-                  success, whether you're a startup with a vision or an enterprise ready to innovate.
+                  Our mission remains unchanged: to bridge the gap between
+                  brilliant concepts and tangible success, whether you're a
+                  startup with a vision or an enterprise ready to innovate.
                 </p>
               </div>
             </div>
@@ -162,13 +195,18 @@ export default function About() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-colors">
+              <Card
+                key={index}
+                className="text-center border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-colors"
+              >
                 <CardContent className="p-6">
                   <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-primary">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {value.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -187,17 +225,26 @@ export default function About() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-colors group">
+              <Card
+                key={index}
+                className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-colors group"
+              >
                 <CardContent className="p-6 text-center">
                   <div className="w-20 h-20 bg-spark-gradient rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-background group-hover:scale-110 transition-transform">
                     {member.avatar}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                   <p className="text-primary font-medium mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{member.description}</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    {member.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {member.expertise.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="text-xs">
+                      <Badge
+                        key={skill}
+                        variant="secondary"
+                        className="text-xs"
+                      >
                         {skill}
                       </Badge>
                     ))}
@@ -215,7 +262,8 @@ export default function About() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Technology Stack</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We use cutting-edge technologies to build robust, scalable solutions
+              We use cutting-edge technologies to build robust, scalable
+              solutions
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -228,8 +276,17 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {["React", "Vue.js", "Angular", "TypeScript", "Tailwind CSS", "Next.js"].map((tech) => (
-                    <Badge key={tech} variant="outline">{tech}</Badge>
+                  {[
+                    "React",
+                    "Vue.js",
+                    "Angular",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "Next.js",
+                  ].map((tech) => (
+                    <Badge key={tech} variant="outline">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -244,8 +301,17 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {["Node.js", "Python", "PostgreSQL", "MongoDB", "AWS", "Docker"].map((tech) => (
-                    <Badge key={tech} variant="outline">{tech}</Badge>
+                  {[
+                    "Node.js",
+                    "Python",
+                    "PostgreSQL",
+                    "MongoDB",
+                    "AWS",
+                    "Docker",
+                  ].map((tech) => (
+                    <Badge key={tech} variant="outline">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -260,8 +326,17 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {["TensorFlow", "PyTorch", "OpenAI", "Flutter", "React Native", "Firebase"].map((tech) => (
-                    <Badge key={tech} variant="outline">{tech}</Badge>
+                  {[
+                    "TensorFlow",
+                    "PyTorch",
+                    "OpenAI",
+                    "Flutter",
+                    "React Native",
+                    "Firebase",
+                  ].map((tech) => (
+                    <Badge key={tech} variant="outline">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -280,17 +355,25 @@ export default function About() {
                 Ready to Work With Us?
               </h3>
               <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Let's turn your ideas into reality. Join the hundreds of clients who trust SparkNest Studio 
-                for their digital transformation.
+                Let's turn your ideas into reality. Join the hundreds of clients
+                who trust SparkNest Studio for their digital transformation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/start-project">
-                  <Button size="lg" variant="secondary" className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-background/20 hover:bg-background/30 backdrop-blur-sm border-0"
+                  >
                     Start Your Project
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-background/30 text-background hover:bg-background/10">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-background/30 text-background hover:bg-background/10"
+                  >
                     <MessageSquare className="w-5 h-5 mr-2" />
                     Get in Touch
                   </Button>

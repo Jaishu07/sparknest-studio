@@ -9,10 +9,10 @@ interface PlaceholderPageProps {
   suggestedAction?: string;
 }
 
-export default function PlaceholderPage({ 
-  title, 
-  description, 
-  suggestedAction = "Let us know what you'd like to see on this page!" 
+export default function PlaceholderPage({
+  title,
+  description,
+  suggestedAction = "Let us know what you'd like to see on this page!",
 }: PlaceholderPageProps) {
   return (
     <div className="min-h-screen bg-background">
@@ -64,14 +64,13 @@ export default function PlaceholderPage({
                   </Button>
                 </Link>
                 <Link to="/start-project">
-                  <Button variant="outline">
-                    Start a Project
-                  </Button>
+                  <Button variant="outline">Start a Project</Button>
                 </Link>
               </div>
             </div>
             <div className="text-xs text-muted-foreground">
-              This page is coming soon. In the meantime, explore our other pages or get in touch!
+              This page is coming soon. In the meantime, explore our other pages
+              or get in touch!
             </div>
           </CardContent>
         </Card>
