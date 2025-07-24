@@ -24,25 +24,50 @@ const ProjectFormSchema = z.object({
   additionalInfo: z.string().optional()
 });
 
-// This is a mock email service - in production, you'd use a real email service
-// like SendGrid, Mailgun, or AWS SES
+// Create email transporter
+const createTransporter = () => {
+  // For production, use environment variables for email configuration
+  // For now, using a generic SMTP configuration that works with most providers
+  return nodemailer.createTransporter({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USER || 'mrsharma729@gmail.com',
+      pass: process.env.EMAIL_PASS || 'your-app-password-here'
+    }
+  });
+};
+
 const sendEmail = async (to: string, subject: string, htmlContent: string) => {
-  // Mock email sending - log the email content
-  console.log("📧 Email would be sent to:", to);
-  console.log("📧 Subject:", subject);
-  console.log("📧 Content:", htmlContent);
-  
-  // In production, replace this with actual email service
-  // Example with SendGrid:
-  // const msg = {
-  //   to,
-  //   from: 'noreply@sparknest.studio',
-  //   subject,
-  //   html: htmlContent,
-  // };
-  // await sgMail.send(msg);
-  
-  return true;
+  try {
+    // For demo purposes, we'll log the email instead of sending
+    // In production, uncomment the transporter code and set up proper email credentials
+
+    console.log("📧 Email would be sent to:", to);
+    console.log("📧 Subject:", subject);
+    console.log("📧 Content preview:", htmlContent.substring(0, 200) + "...");
+
+    // Uncomment this for production with proper email credentials:
+    /*
+    const transporter = createTransporter();
+
+    const mailOptions = {
+      from: `"SparkNest Studio" <${process.env.EMAIL_USER || 'noreply@sparknest.studio'}>`,
+      to: to,
+      subject: subject,
+      html: htmlContent
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent successfully to:", to);
+    */
+
+    return true;
+  } catch (error) {
+    console.error("❌ Email sending failed:", error);
+    throw error;
+  }
 };
 
 export const handleContactForm: RequestHandler = async (req, res) => {
