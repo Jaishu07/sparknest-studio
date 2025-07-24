@@ -196,10 +196,12 @@ export const handleProjectForm: RequestHandler = async (req, res) => {
     `;
     
     await sendEmail("mrsharma729@gmail.com", `[SparkNest] New Project: ${projectTypeLabels[projectType]}`, htmlContent);
-    
-    res.json({ 
-      success: true, 
-      message: "Your project request has been submitted! We'll review it and get back to you within 24 hours." 
+
+    console.log(`✅ Project form submitted by ${name} (${email}) - Type: ${projectTypeLabels[projectType]}`);
+
+    res.json({
+      success: true,
+      message: "Your project request has been submitted! We'll review it and get back to you within 24 hours."
     });
   } catch (error) {
     console.error("Error sending project email:", error);
