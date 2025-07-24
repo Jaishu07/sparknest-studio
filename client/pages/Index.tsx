@@ -39,7 +39,7 @@ export default function Index() {
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6 min-h-[90vh] flex items-center">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Content */}
             <div className="space-y-8">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary">
