@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { z } from "zod";
-import nodemailer from "nodemailer";
+import * as nodemailer from "nodemailer";
 
 const ContactFormSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -73,7 +73,7 @@ const sendEmail = async (to: string, subject: string, htmlContent: string) => {
   } catch (error) {
     console.error("❌ Email sending failed:", error);
     // Don't throw error - still return success for demo purposes
-    console.log("�� Continuing with demo mode...");
+    console.log("📧 Continuing with demo mode...");
     return true;
   }
 };
