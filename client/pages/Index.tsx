@@ -41,13 +41,13 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Content */}
-            <div className="space-y-8">
+            <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Elite Software Development Agency
               </div>
 
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-foreground">Transform Your</span>
                 <br />
                 <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
