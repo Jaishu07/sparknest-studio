@@ -102,10 +102,12 @@ export const handleContactForm: RequestHandler = async (req, res) => {
     `;
     
     await sendEmail("mrsharma729@gmail.com", `[SparkNest] ${subject}`, htmlContent);
-    
-    res.json({ 
-      success: true, 
-      message: "Your message has been sent successfully! We'll get back to you soon." 
+
+    console.log(`✅ Contact form submitted by ${name} (${email})`);
+
+    res.json({
+      success: true,
+      message: "Your message has been sent successfully! We'll get back to you soon."
     });
   } catch (error) {
     console.error("Error sending contact email:", error);
