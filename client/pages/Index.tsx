@@ -105,7 +105,7 @@ export default function Index() {
             </div>
 
             {/* Right Side - Animated Image */}
-            <div className="relative lg:h-[600px] h-[400px]">
+            <div className="relative lg:h-[600px] h-[400px] order-first lg:order-last">
               {/* Main floating card */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-full max-w-md">
