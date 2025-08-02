@@ -69,9 +69,11 @@ export default function Contact() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ ...formData, formType: "contact" }),
+
       });
 
       const result = await response.json();
+      console.log("📬 Contact form response:", result);
 
       if (result.success) {
         setIsSubmitted(true);

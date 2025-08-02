@@ -422,15 +422,15 @@ export default function StartProject() {
                         <SelectValue placeholder="Select your budget range" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="under-5k">Under $5,000</SelectItem>
-                        <SelectItem value="5k-15k">$5,000 - $15,000</SelectItem>
+                        <SelectItem value="under-5k">Under ₹ 10,000</SelectItem>
+                        <SelectItem value="5k-15k"> ₹15,000 - ₹20,000</SelectItem>
                         <SelectItem value="15k-50k">
-                          $15,000 - $50,000
+                         ₹20,000 - ₹50,000
                         </SelectItem>
                         <SelectItem value="50k-100k">
-                          $50,000 - $100,000
+                          ₹50,000 - ₹100,000
                         </SelectItem>
-                        <SelectItem value="over-100k">Over $100,000</SelectItem>
+                        <SelectItem value="over-100k">Over ₹100,000</SelectItem>
                         <SelectItem value="discuss">Let's discuss</SelectItem>
                       </SelectContent>
                     </Select>

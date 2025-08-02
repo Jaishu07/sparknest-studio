@@ -9,6 +9,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight,
+  Menu,
+  X,
   Sparkles,
   Users,
   Rocket,
@@ -22,25 +24,152 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
-export default function Index() {
+// Add custom animations to global styles
+const addKeyframes = () => {
+  if (typeof document === 'undefined') return;
+  
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .animate-slide-up {
+      display: inline-block;
+      animation: slideUp 0.6s ease-out forwards;
+    }
+    .animate-gradient {
+      background-size: 200% auto;
+      animation: gradient 3s ease infinite;
+    }
+  `;
+  document.head.appendChild(style);
+};
+
+// Only add keyframes in the browser
+type ClientOnlyProps = {
+  children: React.ReactNode;
+};
+
+const ClientOnly: React.FC<ClientOnlyProps> = ({ children }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    addKeyframes();
+  }, []);
+
+  return mounted ? <>{children}</> : null;
+};
+
+
+function Index() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (mobileMenuOpen && !target.closest('nav')) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
+  
+  // Close mobile menu when route changes
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setMobileMenuOpen(false);
+    };
+
+    // Initial check
+    handleRouteChange();
+
+    // Set up event listener for route changes
+    window.addEventListener('popstate', handleRouteChange);
+    
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
+  
+  // Add animation classes to elements as they come into view
+  useEffect(() => {
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('animate-fade-in-up');
+        }
+      });
+    };
+
+    // Only run in browser
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', animateOnScroll);
+      // Initial check
+      animateOnScroll();
+      
+      return () => {
+        window.removeEventListener('scroll', animateOnScroll);
+      };
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="relative">
-                <div className="w-10 h-10 bg-spark-gradient rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-background" />
+              <Link to="/" className="flex items-center space-x-3">
+                <div className="relative">
+                  <div className="w-10 h-10 bg-spark-gradient rounded-xl flex items-center justify-center">
+                    <Sparkles className="w-6 h-6 text-background" />
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-spark-blue rounded-full border-2 border-background"></div>
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-spark-blue rounded-full border-2 border-background"></div>
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
-                SparkNest Studio
-              </span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
+                  SparkNest Studio
+                </span>
+              </Link>
             </div>
+            
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
                 to="/services"
@@ -69,39 +198,123 @@ export default function Index() {
                 </Button>
               </Link>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-muted-foreground hover:text-foreground transition-colors p-2"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div
+            className={`md:hidden transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? 'max-h-96 opacity-100 py-4' : 'max-h-0 opacity-0 py-0 overflow-hidden'
+            }`}
+          >
+            <div className="flex flex-col space-y-4 pt-4 border-t border-border">
+              <Link
+                to="/services"
+                className="text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-lg hover:bg-accent/50"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                to="/portfolio"
+                className="text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-lg hover:bg-accent/50"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Portfolio
+              </Link>
+              <Link
+                to="/about"
+                className="text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-lg hover:bg-accent/50"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link 
+                to="/contact" 
+                className="w-full"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Button
+                  variant="outline"
+                  className="w-full border-primary/20 hover:bg-primary/10"
+                >
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-6 min-h-[90vh] flex items-center">
+      <section className="pt-24 pb-16 px-4 sm:px-6 min-h-[90vh] flex items-center overflow-hidden">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Content */}
             <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary">
+              <div 
+                className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary animate-fade-in-up"
+                style={{
+                  animationDelay: '0.2s',
+                  opacity: 0,
+                  animationFillMode: 'forwards'
+                }}
+              >
                 <Sparkles className="w-4 h-4 mr-2" />
-                Elite Software Development Agency
+                <span className="text-sm sm:text-base">Elite Software Development Agency</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                <span className="text-foreground">Transform Your</span>
-                <br />
-                <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent">
+              <h1 
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fade-in-up"
+                style={{
+                  animationDelay: '0.3s',
+                  opacity: 0,
+                  animationFillMode: 'forwards'
+                }}
+              >
+                <span className="text-foreground block animate-slide-up">Transform Your</span>
+                <span className="bg-gradient-to-r from-spark-purple to-spark-blue bg-clip-text text-transparent block py-2 animate-gradient">
                   Digital Vision
                 </span>
-                <br />
-                <span className="text-foreground">Into Reality</span>
+                <span className="text-foreground block animate-slide-up">Into Reality</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
+              <p 
+                className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 animate-fade-in-up"
+                style={{
+                  animationDelay: '0.4s',
+                  opacity: 0,
+                  animationFillMode: 'forwards'
+                }}
+              >
                 We're not just another software agency. We're your technology
                 partners, crafting cutting-edge web applications, mobile
                 solutions, and AI-powered tools that drive real business
                 results.
               </p>
 
-              <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <div 
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 text-sm text-muted-foreground animate-fade-in-up"
+                style={{
+                  animationDelay: '0.5s',
+                  opacity: 0,
+                  animationFillMode: 'forwards'
+                }}
+              >
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                   <span>150+ Projects Delivered</span>
@@ -112,21 +325,28 @@ export default function Index() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/start-project">
+              <div 
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up"
+                style={{
+                  animationDelay: '0.6s',
+                  opacity: 0,
+                  animationFillMode: 'forwards'
+                }}
+              >
+                <Link to="/start-project" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-spark-gradient hover:opacity-90 text-background font-semibold px-8 py-4 text-lg w-full sm:w-auto"
+                    className="bg-spark-gradient hover:scale-105 transform transition-all duration-300 hover:shadow-lg text-background font-semibold px-6 sm:px-8 py-6 sm:py-4 text-base sm:text-lg w-full"
                   >
                     Start Your Project
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Link to="/portfolio">
+                <Link to="/portfolio" className="w-full sm:w-auto">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-primary/20 hover:bg-primary/10 px-8 py-4 text-lg w-full sm:w-auto"
+                    className="border-primary/20 hover:bg-primary/10 hover:scale-105 transform transition-all duration-300 px-6 sm:px-8 py-6 sm:py-4 text-base sm:text-lg w-full"
                   >
                     View Our Work
                   </Button>
@@ -616,11 +836,19 @@ export default function Index() {
               </span>
             </div>
             <div className="text-sm text-muted-foreground">
-              © 2024 SparkNest Studio. Where innovative ideas take flight.
+              © 2025 SparkNest Studio. Where innovative ideas take flight.
             </div>
           </div>
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function IndexWrapper() {
+  return (
+    <ClientOnly>
+      <Index />
+    </ClientOnly>
   );
 }

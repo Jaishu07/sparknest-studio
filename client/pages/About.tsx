@@ -22,40 +22,25 @@ import {
 import { Link } from "react-router-dom";
 
 export default function About() {
-  const teamMembers = [
-    {
-      name: "Alex Chen",
-      role: "Founder & Lead Developer",
-      expertise: ["React", "Node.js", "AI/ML"],
-      description:
-        "Full-stack developer with 8+ years experience building scalable web applications and AI solutions.",
-      avatar: "A",
-    },
-    {
-      name: "Sarah Kim",
-      role: "UI/UX Design Lead",
-      expertise: ["Figma", "Design Systems", "User Research"],
-      description:
-        "Creative designer passionate about crafting intuitive user experiences that drive engagement.",
-      avatar: "S",
-    },
-    {
-      name: "Marcus Rodriguez",
-      role: "AI/ML Specialist",
-      expertise: ["Python", "TensorFlow", "NLP"],
-      description:
-        "Data scientist and ML engineer specializing in custom AI models and automation solutions.",
-      avatar: "M",
-    },
-    {
-      name: "Priya Sharma",
-      role: "Project Manager",
-      expertise: ["Agile", "Client Relations", "Quality Assurance"],
-      description:
-        "Experienced PM ensuring projects deliver on time, within scope, and exceed client expectations.",
-      avatar: "P",
-    },
-  ];
+ const teamMembers = [
+  {
+    name: "Yashwant Sharma",
+    role: "Tech Head",
+    expertise: ["System Architecture", "Full-Stack Development", "AI Strategy"],
+    description:
+      "Visionary Tech Head guiding our engineering efforts and driving innovation in scalable solutions.",
+    imageUrl: "https://lh3.googleusercontent.com/a/ACg8ocJm9eQK2zmp4zQQYFP1A6bbMUhZxuLCCTlecDEmrYOD-hq1CM3u-w=s432-c-no",
+  },
+  {
+    name: "Asif Hussain",
+    role: "Tech Manager",
+    expertise: ["Team Leadership", "Software Development Lifecycle", "Cloud Infrastructure"],
+    description:
+      "Experienced Tech Manager overseeing development teams and ensuring efficient project execution.",
+    imageUrl: "https://lh3.googleusercontent.com/a/ACg8ocKo8h4WE6e434PujygyZ27e6uxXNqY5kE72gl3eBRf6NYCcrJBapQ=s432-c-no",
+  },
+  
+];
 
   const values = [
     {
@@ -162,15 +147,15 @@ export default function About() {
               <div className="bg-spark-gradient rounded-2xl p-8 text-background">
                 <div className="grid grid-cols-2 gap-6 text-center">
                   <div>
-                    <div className="text-3xl font-bold">150+</div>
+                    <div className="text-3xl font-bold">30+</div>
                     <div className="text-sm opacity-90">Projects Completed</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">4+</div>
+                    <div className="text-3xl font-bold">2+</div>
                     <div className="text-sm opacity-90">Years Experience</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">50+</div>
+                    <div className="text-3xl font-bold">10+</div>
                     <div className="text-sm opacity-90">Happy Clients</div>
                   </div>
                   <div>
@@ -215,46 +200,66 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 px-6 bg-muted/30">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The talented individuals behind SparkNest Studio's success
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card
-                key={index}
-                className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-colors group"
-              >
-                <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 bg-spark-gradient rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-background group-hover:scale-110 transition-transform">
-                    {member.avatar}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                  <p className="text-primary font-medium mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+<section className="py-16 px-6 bg-gray-900 min-h-screen flex items-center justify-center">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-white">Meet Our Team</h2>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            The talented individuals behind SparkNest Studio's success
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
+          {teamMembers.map((member, index) => (
+            <Card
+              key={index}
+              className="border border-gray-700 bg-white/10 backdrop-blur-md rounded-xl
+                         hover:border-blue-500 transition-all duration-300 ease-in-out
+                         group hover:shadow-lg hover:-translate-y-1"
+            >
+              {/* CardContent now uses flexbox for responsive layout */}
+              <CardContent className="p-6 flex flex-col items-center text-center md:flex-row md:items-start md:text-left">
+                {/* Avatar container */}
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 md:mb-0 md:mr-6 text-2xl font-bold text-white overflow-hidden group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  {member.imageUrl ? (
+                    <img
+                      src={member.imageUrl}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.style.display = 'none';
+                        e.target.parentNode.innerHTML = member.avatar;
+                      }}
+                    />
+                  ) : (
+                    member.avatar
+                  )}
+                </div>
+                {/* Text content container */}
+                <div className="flex-grow">
+                  <h3 className="text-xl font-semibold mb-2 text-white">{member.name}</h3>
+                  <p className="text-blue-400 font-medium mb-3">{member.role}</p>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                     {member.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 justify-center">
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {member.expertise.map((skill) => (
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="text-xs"
+                        className="text-xs bg-gray-700 text-gray-200 hover:bg-gray-600"
                       >
                         {skill}
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Technology Stack */}
       <section className="py-16 px-6">
