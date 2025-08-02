@@ -20,6 +20,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Avatar } from "@radix-ui/react-avatar";
 
 export default function About() {
  const teamMembers = [
@@ -30,6 +31,7 @@ export default function About() {
     description:
       "Visionary Tech Head guiding our engineering efforts and driving innovation in scalable solutions.",
     imageUrl: "https://lh3.googleusercontent.com/a/ACg8ocJm9eQK2zmp4zQQYFP1A6bbMUhZxuLCCTlecDEmrYOD-hq1CM3u-w=s432-c-no",
+    avatar: "ys"
   },
   {
     name: "Asif Hussain",
@@ -38,6 +40,7 @@ export default function About() {
     description:
       "Experienced Tech Manager overseeing development teams and ensuring efficient project execution.",
     imageUrl: "https://lh3.googleusercontent.com/a/ACg8ocKo8h4WE6e434PujygyZ27e6uxXNqY5kE72gl3eBRf6NYCcrJBapQ=s432-c-no",
+    avatar: "ah"
   },
   
 ];
@@ -226,9 +229,9 @@ export default function About() {
                       alt={member.name}
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.style.display = 'none';
-                        e.target.parentNode.innerHTML = member.avatar;
+                        // e.target.onerror = null;
+                        // e.target.style.display = 'none';
+                        // e.target.parentNode.innerHTML = member.avatar;
                       }}
                     />
                   ) : (

@@ -18,7 +18,8 @@
     "start": "node dist/server/node-build.mjs",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "stage": "tsc && git status && git add ."
   },
   "dependencies": {
     "@types/nodemailer": "^6.4.17",
